@@ -1,13 +1,17 @@
-<body style="background-color: rgb(77, 76, 76);">
-<div id="container" style="text-align: center;">
-    <font face="Ink Free"><h1>WORD COUNT</h1></font>
-    <form action="{% url 'count' %}">
-        <textarea name="fulltext" cols="140" rows="20"></textarea>
-        <br>
-        <br>
-        <input type="submit" value="Count!" />
-    </form>
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load staticfiles %}
+<img src="{% static 'WordCountGuy2.png' %}" height=200 alt="">
+<h1 style="text-align: center;">WORD COUNT</h1>
+<hr>
+<form action="{% url 'count' %}">
+<textarea name="fulltext" cols="105" rows="10"></textarea>
+<br>
+<br>
+<div class="container " style="text-align: center;">
+<input class="btn btn-primary" type="submit" value="Count!" />
 </div>
-    
-        
-</body>
+</form>
+{% endblock %}

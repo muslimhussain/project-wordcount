@@ -1,16 +1,18 @@
-<body style="background-color: rgb(77, 76, 76); text-align: center;">
-<font style="color:rgb(250, 249, 174)" face="Ink Free"><h1>There are {{ count }} words in your text</h1></font>
+{% extends 'base.html' %}
 
-<font style="color:rgb(250, 249, 194)" face="Ink Free"><h1>Your Text:</h1></font>
+{% block content %}
+<h1>There are {{ count }} words in your text</h1>
+<h1>Your Text:</h1>
 
-<font style="color: ivory;" face="Consolas">{{ fulltext }}</font>
+{{ fulltext }}
 
-<font style="color:rgb(255, 251, 0)" face="Ink Free"><h2>Word Count</h2></font>
+<h2>Word Count</h2>
 
 {% for word, counttotal in sortedwords %}
-    <font style="color: ivory;" face="Consolas">{{ word }} - {{ counttotal }}, </font>
+    {{ word }} - {{ counttotal }}, 
 {% endfor %}
 <br>
 <br>
-<a style="font-style: oblique; color: ivory;" href="{% url 'home' %}">New Count</a>
+<a href="{% url 'home' %}">New Count</a>
 </body>
+{% endblock %}
